@@ -1,0 +1,23 @@
+{
+    "name": "mdjward/laravel-container-resolution-extension",
+    "description": "Container resolution extensions for the Laravel 5 framework.",
+    "require": {
+        "laravel/framework": "5.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mdjward\\LaravelContainerExtensions\\": "src/Mdjward/LaravelContainerExtensions/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mdjward\\LaravelContainerExtensions\\": "tests/Mdjward/LaravelContainerExtensions/"
+        }
+    },
+    "authors": [
+        {
+            "name": "M.D.Ward",
+            "email": "dev@mattdw.co.uk"
+        }
+    ]
+}
