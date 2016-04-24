@@ -29,13 +29,11 @@ interface ResolutionStrategyInterface
      * 
      * @param Container $container
      * @param ReflectionParameter $parameterToMatch
-     * @param array $givenParameters
      * @param array $givenPrimitives
      */
     public function resolveParameter(
         Container $container,
         ReflectionParameter $parameterToMatch,
-        array $givenParameters = [],
         array $givenPrimitives = []
     );
     

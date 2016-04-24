@@ -28,14 +28,12 @@ class TypeOnlyStrategy implements ResolutionStrategyInterface
      * @param Container $container
      * @param ReflectionParameter $parameterToMatch
      * @param array $givenParameters
-     * @param array $givenPrimitives
      * @return object
      * @throws ResolutionFailedException
      */
     public function resolveParameter(
         Container $container,
         ReflectionParameter $parameterToMatch,
-        array $givenParameters = [],
         array $givenPrimitives = []
     ) {
         if (($parameterType = $parameterToMatch->getClass()) === null) {

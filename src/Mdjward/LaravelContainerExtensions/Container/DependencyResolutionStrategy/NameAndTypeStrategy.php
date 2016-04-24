@@ -23,10 +23,17 @@ use ReflectionParameter;
 class NameAndTypeStrategy implements ResolutionStrategyInterface
 {
     
+    /**
+     * 
+     * @param Container $container
+     * @param ReflectionParameter $parameterToMatch
+     * @param array $givenPrimitives
+     * @return mixed
+     * @throws ResolutionFailedException
+     */
     public function resolveParameter(
         Container $container,
         ReflectionParameter $parameterToMatch,
-        array $givenParameters = [],
         array $givenPrimitives = []
     ) {
         $parameterName = $parameterToMatch->getName();

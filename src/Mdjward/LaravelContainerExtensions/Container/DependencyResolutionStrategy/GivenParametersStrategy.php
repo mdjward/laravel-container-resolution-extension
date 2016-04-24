@@ -27,7 +27,6 @@ class GivenParametersStrategy implements ResolutionStrategyInterface
      * 
      * @param Container $container
      * @param ReflectionParameter $parameterToMatch
-     * @param array $givenParameters
      * @param array $givenPrimitives
      * @return mixed
      * @throws ResolutionFailedException
@@ -35,15 +34,12 @@ class GivenParametersStrategy implements ResolutionStrategyInterface
     public function resolveParameter(
         Container $container,
         ReflectionParameter $parameterToMatch,
-        array $givenParameters = [],
         array $givenPrimitives = []
     ) {
         $parameterName = $parameterToMatch->getName();
         
-        foreach ([&$givenParameters, &$givenPrimitives] as $sourceArray) {
-            if (isset($sourceArray[$parameterName])) {
-                return $sourceArray[$parameterName];
-            }
+        if (isset($givenPrimitives[$parameterName])) {
+            return $givenPrimitives[$parameterName];
         }
         
         throw new ResolutionFailedException($parameterToMatch);

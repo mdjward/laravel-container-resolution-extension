@@ -27,7 +27,6 @@ class NameAndPrimitiveTypeStrategy
      * 
      * @param Container $container
      * @param ReflectionParameter $parameterToMatch
-     * @param array $givenParameters
      * @param array $givenPrimitives
      * @return mixed
      * @throws ResolutionFailedException
@@ -35,8 +34,7 @@ class NameAndPrimitiveTypeStrategy
     public function resolveParameter(
         Container $container,
         ReflectionParameter $parameterToMatch,
-        array $givenParameters = array(),
-        array $givenPrimitives = array()
+        array $givenPrimitives = []
     ) {
         if ($parameterToMatch->isArray()) {
             return $this->validateAndResolve(

@@ -50,33 +50,6 @@ class GivenParametersStrategyTest extends AbstractStrategyTestCase
      * @test
      * @covers ::resolveParameter
      */
-    public function testResolveParameterReturnsGivenParameterIfFound()
-    {
-        $this->parameterToMatch
-            ->expects($this->once())
-            ->method('getName')
-            ->will(
-                $this->returnValue(($this->parameterName = 'PARAMETER NAME'))
-            )
-        ;
-        
-        $this->assertSame(
-            12345,
-            $this->strategy->resolveParameter(
-                $this->container,
-                $this->parameterToMatch,
-                [
-                    $this->parameterName => 12345
-                ],
-                []
-            )
-        );
-    }
-    
-    /**
-     * @test
-     * @covers ::resolveParameter
-     */
     public function testResolveParameterReturnsGivenPrimitiveIfFound()
     {
         $this->parameterToMatch
@@ -94,8 +67,7 @@ class GivenParametersStrategyTest extends AbstractStrategyTestCase
                 $this->parameterToMatch,
                 [
                     $this->parameterName => 12345
-                ],
-                []
+                ]
             )
         );
     }
@@ -122,9 +94,7 @@ class GivenParametersStrategyTest extends AbstractStrategyTestCase
         
         $this->strategy->resolveParameter(
             $this->container,
-            $this->parameterToMatch,
-            [],
-            []
+            $this->parameterToMatch
         );
     }
 
