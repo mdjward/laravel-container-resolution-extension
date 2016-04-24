@@ -50,6 +50,10 @@ class NameAndTypeStrategyTest extends AbstractStrategyTestCase
         ;
     }
     
+    /**
+     * @test
+     * @covers ::resolveParameter
+     */
     public function testResolveParameterReturnsCorrectlyTypedParameter()
     {
         $parameterType = $this
@@ -89,6 +93,27 @@ class NameAndTypeStrategyTest extends AbstractStrategyTestCase
             $parameterValue,
             $this->strategy->resolveParameter($this->container, $this->parameterToMatch)
         );
+    }
+    
+    /**
+     * @test
+     * @covers ::resolveParameter
+     * @covers \Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\ResolutionFailedException::__construct
+     */
+    public function testResolveParameterThrowsExceptionIfNoParameterMatch()
+    {
+        $this->parameterToMatch
+            ->expects($this->once())
+            ->method('getClass')
+            ->will($this->returnValue(null))
+        ;
+
+        $this->setExpectedException(
+            ResolutionFailedException::class,
+            "Failed to resolve parameter " . $this->parameterName
+        );
+        
+        $this->strategy->resolveParameter($this->container, $this->parameterToMatch);
     }
     
 }
