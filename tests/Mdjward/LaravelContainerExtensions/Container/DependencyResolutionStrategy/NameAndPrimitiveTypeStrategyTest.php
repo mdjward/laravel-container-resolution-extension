@@ -88,6 +88,7 @@ class NameAndPrimitiveTypeStrategyTest extends AbstractStrategyTestCase
      * @test
      * @covers ::resolveParameter
      * @covers ::validateAndResolve
+     * @covers \Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\ResolutionFailedException::__construct
      */
     public function testResolveParameterFailsIfUnableToValidateCallableValue()
     {
@@ -199,7 +200,7 @@ class NameAndPrimitiveTypeStrategyTest extends AbstractStrategyTestCase
     /**
      * @test
      * @covers ::resolveParameter
-     * @covers ::validateAndResolve
+     * @covers \Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\ResolutionFailedException::__construct
      */
     public function testResolveParameterFailsIfNotArrayCallableOrScalar()
     {

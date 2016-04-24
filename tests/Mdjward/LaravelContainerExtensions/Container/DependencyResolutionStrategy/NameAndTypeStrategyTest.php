@@ -18,6 +18,7 @@ use ReflectionClass;
  * NameAndTypeStrategyTest
  *
  * @author M.D.Ward <dev@mattdw.co.uk>
+ * @coversDefaultClass \Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\NameAndTypeStrategy
  */
 class NameAndTypeStrategyTest extends AbstractStrategyTestCase
 {
@@ -40,14 +41,6 @@ class NameAndTypeStrategyTest extends AbstractStrategyTestCase
         parent::setUp();
         
         $this->strategy = new NameAndTypeStrategy();
-        
-        $this->parameterToMatch
-            ->expects($this->once())
-            ->method('getName')
-            ->will(
-                $this->returnValue(($this->parameterName = 'PARAMETER NAME'))
-            )
-        ;
     }
     
     /**
@@ -56,6 +49,14 @@ class NameAndTypeStrategyTest extends AbstractStrategyTestCase
      */
     public function testResolveParameterReturnsCorrectlyTypedParameter()
     {
+        $this->parameterToMatch
+            ->expects($this->once())
+            ->method('getName')
+            ->will(
+                $this->returnValue(($this->parameterName = 'PARAMETER NAME'))
+            )
+        ;
+
         $parameterType = $this
             ->getMockBuilder(ReflectionClass::class)
             ->disableOriginalConstructor()
@@ -102,6 +103,14 @@ class NameAndTypeStrategyTest extends AbstractStrategyTestCase
      */
     public function testResolveParameterThrowsExceptionIfNoParameterMatch()
     {
+        $this->parameterToMatch
+            ->expects($this->exactly(2))
+            ->method('getName')
+            ->will(
+                $this->returnValue(($this->parameterName = 'PARAMETER NAME'))
+            )
+        ;
+
         $this->parameterToMatch
             ->expects($this->once())
             ->method('getClass')

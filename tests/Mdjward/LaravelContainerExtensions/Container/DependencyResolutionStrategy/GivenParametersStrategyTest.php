@@ -103,6 +103,7 @@ class GivenParametersStrategyTest extends AbstractStrategyTestCase
     /**
      * @test
      * @covers ::resolveParameter
+     * @covers \Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\ResolutionFailedException::__construct
      */
     public function testResolveParameterThrowsExceptionIfNothingIsFound()
     {
