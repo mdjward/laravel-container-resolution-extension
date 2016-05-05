@@ -27,7 +27,6 @@ class TypeOnlyStrategy implements ResolutionStrategyInterface
      * 
      * @param Container $container
      * @param ReflectionParameter $parameterToMatch
-     * @param array $givenParameters
      * @return object
      * @throws ResolutionFailedException
      */
