@@ -67,7 +67,7 @@ class NameAndPrimitiveTypeStrategy
      * 
      * @param Container $container
      * @param ReflectionParameter $parameter
-     * @param callable $validationFunction
+     * @param callable|null $validationFunction
      * @return mixed
      * @throws ResolutionFailedException
      */

@@ -59,7 +59,7 @@ class NameAndTypeStrategy implements ResolutionStrategyInterface
             ($parameterType = $parameterToMatch->getClass()) !== null
             && $container->bound($parameterName)
             && $parameterType->isInstance(
-                ($instance = $container->make($parameterName))
+                ($instance  = $container->make($parameterName))
             )
             ? $instance
             : null

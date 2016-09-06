@@ -30,6 +30,7 @@ interface ResolutionStrategyInterface
      * @param Container $container
      * @param ReflectionParameter $parameterToMatch
      * @param array $givenPrimitives
+     * @return mixed
      */
     public function resolveParameter(
         Container $container,

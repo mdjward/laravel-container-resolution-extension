@@ -38,7 +38,7 @@ class ResolutionFailedException extends Exception
     public function __construct(ReflectionParameter $parameter)
     {
         parent::__construct(
-            "Failed to resolve parameter " . $parameter->getName()
+            'Failed to resolve parameter ' . $parameter->getName()
         );
 
         $this->parameter = $parameter;
