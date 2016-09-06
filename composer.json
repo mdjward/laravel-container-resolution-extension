@@ -19,5 +19,8 @@
             "name": "M.D.Ward",
             "email": "dev@mattdw.co.uk"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "5.*"
+    }
 }
