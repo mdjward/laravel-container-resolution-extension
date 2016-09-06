@@ -46,6 +46,7 @@ class NameAndTypeStrategyTest extends AbstractStrategyTestCase
     /**
      * @test
      * @covers ::resolveParameter
+     * @covers ::doResolveParameter
      */
     public function testResolveParameterReturnsCorrectlyTypedParameter()
     {
@@ -99,6 +100,7 @@ class NameAndTypeStrategyTest extends AbstractStrategyTestCase
     /**
      * @test
      * @covers ::resolveParameter
+     * @covers ::doResolveParameter
      * @covers \Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\ResolutionFailedException::__construct
      */
     public function testResolveParameterThrowsExceptionIfNoParameterMatch()
