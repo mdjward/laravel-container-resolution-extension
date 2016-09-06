@@ -8,7 +8,7 @@ An extension to the Laravel container to support multiple mechanisms of dependen
 
 ## Example usage ##
 
-Replace the directive instantiating your container (in the [standard Laravel distribution](http://github.com/laravel/laravel) this will be in [`boostrap/app.php`](https://github.com/laravel/laravel/blob/master/bootstrap/app.php - lines 14 - 16) with the following:
+Replace the directive instantiating your container (in the [standard Laravel distribution](http://github.com/laravel/laravel) this will be in [`boostrap/app.php`](https://github.com/laravel/laravel/blob/master/bootstrap/app.php) - lines 14 - 16) with the following:
 
 ```php
 $app = new Mdjward\LaravelContainerExtensions\Application\Application(
@@ -42,5 +42,5 @@ Consequently, the the base three strategies have been rewritten into this system
 
 ### Implementing your own ###
 
-Create a class implementing (directly or otherwise) [`ResolutionStrategyInterface`](https://github.com/mdjward/laravel-container-resolution-extension/blob/master/src/Mdjward/LaravelContainerExtensions/Container/DependencyResolutionStrategy/ResolutionStrategyInterface.php) and inject an object of your implementation class into the constructor as shown above.
+Create a class implementing (directly or otherwise) [`ResolutionStrategyInterface`](https://github.com/mdjward/laravel-container-resolution-extension/blob/master/src/Mdjward/LaravelContainerExtensions/Container/DependencyResolutionStrategy/ResolutionStrategyInterface.php) and inject an object of your implementation class into the `Application` constructor as shown above.
 
