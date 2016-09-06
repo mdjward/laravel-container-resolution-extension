@@ -16,7 +16,9 @@ $app = new Mdjward\LaravelContainerExtensions\Application\Application(
     [
         new Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\GivenParametersStrategy(),
         new Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\NameAndTypeStrategy(),
-        new Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\NameAndPrimitiveTypeStrategy(),
+        new Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\ArrayNameAndPrimitiveTypeStrategy(),
+        new Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\CallableNameAndPrimitiveTypeStrategy(),
+        new Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\ScalarNameAndPrimitiveTypeStrategy(),
         new Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\TypeOnlyStrategy(),
         new Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\DefaultParameterValueStrategy(),
     ]
@@ -27,7 +29,7 @@ $app = new Mdjward\LaravelContainerExtensions\Application\Application(
 
 This solution overrides the existing `Application::getDependencies` method - which defers to three de-facto "strategies" - and instead loops through the strategies injected by way of the constructor.
 
-Consequently, the the base three strategies have been rewritten into this system.  A further two strategies have been defined to enhance the Laravel autoloader.
+Consequently, the the base three strategies have been rewritten into this system.  A further five strategies have been defined to enhance the Laravel autoloader.
 
 ### Ported from Laravel ###
 
@@ -38,7 +40,9 @@ Consequently, the the base three strategies have been rewritten into this system
 ### New strategies ###
 
 1. **NameAndTypeStrategy** - This attempts to match a service defined in the container based on parameter name and cross-referenced by hitned type.
-2. **NameAndPrimitiveTypeStrategy** - Similar to the above, except with "primitive" type hints as available in PHP 5.6 (`array`, `callable` or other scalar as a fallback).
+2. **ArrayNameAndPrimitiveTypeStrategy** - Similar to above, but for parameters using the `array` type hint as it exists in PHP 5.6.
+3. **CallableNameAndPrimitiveTypeStrategy** - Similar to above, but for parameters using the `callable` or `Closure` type hints as they exists in PHP 5.6.
+4. **ScalarNameAndPrimitiveTypeStrategy** - This attempts to match a scalar value (no hint).
 
 ### Implementing your own ###
 
