@@ -1,6 +1,10 @@
 inherit: true
 
 build:
+    dependencies:
+        override:
+            - composer install --dev --prefer-dist
+
     environment:
         php:
             version: '5.6'
@@ -11,8 +15,6 @@ build:
         before:
             # a workaround for https://github.com/sebastianbergmann/phpunit/issues/1976
             - stty cols 80
-        override:
-            - composer install --dev --prefer-dist
     tests:
         override:
             -
