@@ -22,7 +22,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Container resolution extensions for the Laravel 5 framework - unit tests">
+        <testsuite name="unit-testss">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
