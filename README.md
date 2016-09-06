@@ -29,7 +29,7 @@ $app = new Mdjward\LaravelContainerExtensions\Application\Application(
 
 This solution overrides the existing `Application::getDependencies` method - which defers to three de-facto "strategies" - and instead loops through the strategies injected by way of the constructor.
 
-Consequently, the the base three strategies have been rewritten into this system.  A further five strategies have been defined to enhance the Laravel autoloader.
+Consequently, the the base three strategies have been rewritten into this system.  A further four strategies have been defined to enhance the Laravel autoloader.
 
 ### Ported from Laravel ###
 
