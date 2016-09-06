@@ -44,7 +44,7 @@ class ScalarNameAndPrimitiveTypeStrategyTest extends AbstractNameAndPrimitiveTyp
      * @test
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::resolveParameter
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::extractContainedValue
-     * @covers ::acceptParameter
+     * @covers ::isAcceptableParameter
      */
     public function testResolveParameterFailsWhenParameterIsNotScalarTypeHint()
     {
@@ -69,8 +69,8 @@ class ScalarNameAndPrimitiveTypeStrategyTest extends AbstractNameAndPrimitiveTyp
      * @test
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::resolveParameter
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::extractContainedValue
-     * @covers ::acceptParameter
-     * @covers ::acceptValue
+     * @covers ::isAcceptableParameter
+     * @covers ::isAcceptableValue
      */
     public function testResolveParameterFailsToMatchWhenParameterValueIsNotScalar()
     {
@@ -102,8 +102,8 @@ class ScalarNameAndPrimitiveTypeStrategyTest extends AbstractNameAndPrimitiveTyp
      * @test
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::resolveParameter
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::extractContainedValue
-     * @covers ::acceptParameter
-     * @covers ::acceptValue
+     * @covers ::isAcceptableParameter
+     * @covers ::isAcceptableValue
      */
     public function testResolveParameterResolvesParameterWhenOfCorrectType()
     {

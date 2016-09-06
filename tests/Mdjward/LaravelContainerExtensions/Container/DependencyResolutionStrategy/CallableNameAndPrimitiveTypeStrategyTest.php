@@ -44,7 +44,7 @@ class CallableNameAndPrimitiveTypeStrategyTest extends AbstractNameAndPrimitiveT
      * @test
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::resolveParameter
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::extractContainedValue
-     * @covers ::acceptParameter
+     * @covers ::isAcceptableParameter
      */
     public function testResolveParameterFailsWhenParameterIsNotCallableTypeHint()
     {
@@ -69,8 +69,8 @@ class CallableNameAndPrimitiveTypeStrategyTest extends AbstractNameAndPrimitiveT
      * @test
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::resolveParameter
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::extractContainedValue
-     * @covers ::acceptParameter
-     * @covers ::acceptValue
+     * @covers ::isAcceptableParameter
+     * @covers ::isAcceptableValue
      */
     public function testResolveParameterFailsToMatchWhenParameterValueIsNotCallable()
     {
@@ -102,8 +102,8 @@ class CallableNameAndPrimitiveTypeStrategyTest extends AbstractNameAndPrimitiveT
      * @test
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::resolveParameter
      * @covers Mdjward\LaravelContainerExtensions\Container\DependencyResolutionStrategy\AbstractNameAndPrimitiveTypeStrategy::extractContainedValue
-     * @covers ::acceptParameter
-     * @covers ::acceptValue
+     * @covers ::isAcceptableParameter
+     * @covers ::isAcceptableValue
      */
     public function testResolveParameterResolvesParameterWhenOfCorrectType()
     {

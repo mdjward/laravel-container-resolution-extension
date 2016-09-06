@@ -55,8 +55,8 @@ abstract class AbstractNameAndPrimitiveTypeStrategy implements ResolutionStrateg
     ) {
         return (
             $container->bound(($parameterName = $parameterToMatch->getName()))
-            && $this->acceptParameter($parameterToMatch)
-            && $this->acceptValue(($value = $container->make($parameterName)))
+            && $this->isAcceptableParameter($parameterToMatch)
+            && $this->isAcceptableValue(($value = $container->make($parameterName)))
             ? $value
             : null
         );
@@ -67,7 +67,7 @@ abstract class AbstractNameAndPrimitiveTypeStrategy implements ResolutionStrateg
      * @param ReflectionParameter $parameter
      * @return boolean
      */
-    abstract protected function acceptParameter(
+    abstract protected function isAcceptableParameter(
         ReflectionParameter $parameter
     );
     
@@ -76,6 +76,6 @@ abstract class AbstractNameAndPrimitiveTypeStrategy implements ResolutionStrateg
      * @param mixed $value
      * @return boolean
      */
-    abstract protected function acceptValue($value);
+    abstract protected function isAcceptableValue($value);
 
 }

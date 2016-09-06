@@ -26,7 +26,7 @@ class CallableNameAndPrimitiveTypeStrategy extends AbstractNameAndPrimitiveTypeS
      * @param ReflectionParameter $parameter
      * @return boolean
      */
-    protected function acceptParameter(ReflectionParameter $parameter)
+    protected function isAcceptableParameter(ReflectionParameter $parameter)
     {
         return $parameter->isCallable();
     }
@@ -36,7 +36,7 @@ class CallableNameAndPrimitiveTypeStrategy extends AbstractNameAndPrimitiveTypeS
      * @param mixed $value
      * @return boolean
      */
-    protected function acceptValue($value)
+    protected function isAcceptableValue($value)
     {
         return is_callable($value);
     }

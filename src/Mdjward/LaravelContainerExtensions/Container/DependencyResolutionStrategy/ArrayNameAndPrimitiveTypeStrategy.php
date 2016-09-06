@@ -26,7 +26,7 @@ class ArrayNameAndPrimitiveTypeStrategy extends AbstractNameAndPrimitiveTypeStra
      * @param ReflectionParameter $parameter
      * @return boolean
      */
-    protected function acceptParameter(ReflectionParameter $parameter)
+    protected function isAcceptableParameter(ReflectionParameter $parameter)
     {
         return $parameter->isArray();
     }
@@ -36,7 +36,7 @@ class ArrayNameAndPrimitiveTypeStrategy extends AbstractNameAndPrimitiveTypeStra
      * @param mixed $parameterValue
      * @return boolean
      */
-    protected function acceptValue($parameterValue)
+    protected function isAcceptableValue($parameterValue)
     {
         return is_array($parameterValue);
     }

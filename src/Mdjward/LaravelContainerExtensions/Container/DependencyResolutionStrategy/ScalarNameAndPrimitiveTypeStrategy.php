@@ -26,7 +26,7 @@ class ScalarNameAndPrimitiveTypeStrategy extends AbstractNameAndPrimitiveTypeStr
      * @param ReflectionParameter $parameter
      * @return boolean
      */
-    protected function acceptParameter(ReflectionParameter $parameter)
+    protected function isAcceptableParameter(ReflectionParameter $parameter)
     {
         return ($parameter->getClass() === null);
     }
@@ -36,7 +36,7 @@ class ScalarNameAndPrimitiveTypeStrategy extends AbstractNameAndPrimitiveTypeStr
      * @param mixed $value
      * @return boolean
      */
-    protected function acceptValue($value)
+    protected function isAcceptableValue($value)
     {
         return is_scalar($value);
     }
