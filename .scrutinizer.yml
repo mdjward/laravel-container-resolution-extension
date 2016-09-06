@@ -7,12 +7,12 @@ build:
         mysql: false
         postgresql: false
         redis: false
+    override:
+        - composer install --dev --prefer-dist
     project_setup:
         before:
             # a workaround for https://github.com/sebastianbergmann/phpunit/issues/1976
             - stty cols 80
-        override:
-            - composer install --dev --prefer-dist
     tests:
         override:
             -
