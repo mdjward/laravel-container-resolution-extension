@@ -36,19 +36,34 @@ class NameAndTypeStrategy implements ResolutionStrategyInterface
         ReflectionParameter $parameterToMatch,
         array $givenPrimitives = []
     ) {
-        $parameterName = $parameterToMatch->getName();
-        
-        if (
-            ($parameterType = $parameterToMatch->getClass()) === null
-            || !$container->bound($parameterName)
-            || !$parameterType->isInstance(
-                ($instance = $container->make($parameterName))
-            )
-        ) {
-            throw new ResolutionFailedException($parameterToMatch);
+        if (($instance = $this->doResolveParameter($parameterToMatch->getName(), $container, $parameterToMatch)) !== null) {
+            return $instance;
         }
         
-        return $instance;
+        throw new ResolutionFailedException($parameterToMatch);
+    }
+    
+    /**
+     * 
+     * @param string $parameterName
+     * @param Container $container
+     * @param ReflectionParameter $parameterToMatch
+     * @return object|null
+     */
+    protected function doResolveParameter(
+        $parameterName,
+        Container $container,
+        ReflectionParameter $parameterToMatch
+    ) {
+        return (
+            ($parameterType = $parameterToMatch->getClass()) !== null
+            && $container->bound($parameterName)
+            && $parameterType->isInstance(
+                ($instance = $container->make($parameterName))
+            )
+            ? $instance
+            : null
+        );
     }
     
 }
