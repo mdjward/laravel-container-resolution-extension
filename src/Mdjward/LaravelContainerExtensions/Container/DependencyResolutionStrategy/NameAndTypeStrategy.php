@@ -55,23 +55,15 @@ class NameAndTypeStrategy implements ResolutionStrategyInterface
         Container $container,
         ReflectionParameter $parameterToMatch
     ) {
-        if (($parameterType = $parameterToMatch->getClass()) === null) {
-            return null;
-        }
-        
-        if (!$container->bound($parameterName)) {
-            return null;
-        }
-        
-        if (
-            !$parameterType->isInstance(
+        return (
+            ($parameterType = $parameterToMatch->getClass()) !== null
+            && $container->bound($parameterName)
+            && $parameterType->isInstance(
                 ($instance = $container->make($parameterName))
             )
-        ) {
-            return null;
-        }
-        
-        return $instance;
+            ? $instance
+            : null
+        );
     }
     
 }
