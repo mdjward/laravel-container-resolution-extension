@@ -1,0 +1,27 @@
+inherit: true
+
+build:
+    environment:
+        php:
+            version: '5.6'
+        mysql: false
+        postgresql: false
+        redis: false
+    project_setup:
+        before:
+            # a workaround for https://github.com/sebastianbergmann/phpunit/issues/1976
+            - stty cols 80
+        override:
+            - composer install --dev --prefer-dist
+    tests:
+        override:
+            -
+                command: 'vendor/bin/phpunit --coverage-clover=clover.xml --bootstrap vendor/autoload.php'
+                coverage:
+                    file: 'clover.xml'
+                    format: 'php-clover'
+
+
+filter:
+    paths: [src/**]
+
